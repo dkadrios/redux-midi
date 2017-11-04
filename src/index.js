@@ -108,9 +108,7 @@ export default function setup ({midiOptions, stateKey = 'midi', requestMIDIAcces
             state: device.state,
             connection: device.connection
           })), 'id');
-          if (!deepEqual(devices, getState()[stateKey].devices)) {
-            dispatch(receiveDeviceList(devices));
-          }
+          dispatch(receiveDeviceList(devices));
         };
 
         midiAccess.onstatechange = () => sendDeviceList();
